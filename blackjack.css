@@ -34,12 +34,14 @@ label {
 }
 
 button {
-    font-family: 'Satisfy', cursive;
+    font-family: 'Abril Fatface', cursive;
     font-size: 1em;
+    margin-top: 5px;
 
 }
 
 img {
     height: 100%;
     margin-left: 10px;
+    border-radius: 7px;
 }
