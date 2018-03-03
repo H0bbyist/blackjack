@@ -1,9 +1,21 @@
+body {
+    background-color: #5B2014;
+    background-image: url("cards/beverlyhills.jpg");
+    
+}
+
+#title {
+    color:white;
+    text-align: center;
+    font-size: 4em;
+    font-family: 'Satisfy', cursive;}
+
 #table {
     height: 450px;
     width: 800px;
     background-color: rgb(66, 181, 66);
     margin: 0 auto;
-    border: solid 5px #923A27;
+    border: solid 5px rgb(130, 50, 0);
     border-radius: 40px;
     display: flex;
     flex-direction: column;
@@ -21,8 +33,13 @@ label {
     margin-left: -650px;
 }
 
+button {
+    font-family: 'Satisfy', cursive;
+    font-size: 1em;
+
+}
+
 img {
-    width: 8%;
-    margin-top:7px;
+    height: 100%;
     margin-left: 10px;
 }
