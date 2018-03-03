@@ -1,87 +1,100 @@
 console.log("Sup");
 
-var deal = document.getElementById("deal-button")
+var deal =document.getElementById("deal-button")
 var hit = document.getElementById("hit-button")
 var stand = document.getElementById("stand-button")
 var pHand = document.getElementById("player-hand")
 var dHand = document.getElementById("dealer-hand")
-var img1 = document.createElement('img')
-var img2 = document.createElement('img')
-var img3 = document.createElement('img')
-var img4 = document.createElement('img')
-var img5 = document.createElement('img')
+
 
 var deck = [
-    { point: 1, suit: 'hearts' },
-    { point: 2, suit: 'hearts' },
-    { point: 3, suit: 'hearts' },
-    { point: 4, suit: 'hearts' },
-    { point: 5, suit: 'hearts' },
-    { point: 6, suit: 'hearts' },
-    { point: 7, suit: 'hearts' },
-    { point: 8, suit: 'hearts' },
-    { point: 9, suit: 'hearts' },
-    { point: 10, suit: 'hearts' },
-    { point: 11, suit: 'hearts' },
-    { point: 12, suit: 'hearts' },
-    { point: 13, suit: 'hearts' },
-    { point: 1, suit: 'diamonds' },
-    { point: 2, suit: 'diamonds' },
-    { point: 3, suit: 'diamonds' },
-    { point: 4, suit: 'diamonds' },
-    { point: 5, suit: 'diamonds' },
-    { point: 6, suit: 'diamonds' },
-    { point: 7, suit: 'diamonds' },
-    { point: 8, suit: 'diamonds' },
-    { point: 9, suit: 'diamonds' },
-    { point: 10, suit: 'diamonds' },
-    { point: 11, suit: 'diamonds' },
-    { point: 12, suit: 'diamonds' },
-    { point: 13, suit: 'diamonds' },
-    { point: 1, suit: 'clubs' },
-    { point: 2, suit: 'clubs' },
-    { point: 3, suit: 'clubs' },
-    { point: 4, suit: 'clubs' },
-    { point: 5, suit: 'clubs' },
-    { point: 6, suit: 'clubs' },
-    { point: 7, suit: 'clubs' },
-    { point: 8, suit: 'clubs' },
-    { point: 9, suit: 'clubs' },
-    { point: 10, suit: 'clubs' },
-    { point: 11, suit: 'clubs' },
-    { point: 12, suit: 'clubs' },
-    { point: 13, suit: 'clubs' },
-    { point: 1, suit: 'spades' },
-    { point: 2, suit: 'spades' },
-    { point: 3, suit: 'spades' },
-    { point: 4, suit: 'spades' },
-    { point: 5, suit: 'spades' },
-    { point: 6, suit: 'spades' },
-    { point: 7, suit: 'spades' },
-    { point: 8, suit: 'spades' },
-    { point: 9, suit: 'spades' },
-    { point: 10, suit: 'spades' },
-    { point: 11, suit: 'spades' },
-    { point: 12, suit: 'spades' },
-    { point: 13, suit: 'spades' },
-    
-
+    { point: "A", suit: 'H' },
+    { point: 2, suit: 'H' },
+    { point: 3, suit: 'H' },
+    { point: 4, suit: 'H' },
+    { point: 5, suit: 'H' },
+    { point: 6, suit: 'H' },
+    { point: 7, suit: 'H' },
+    { point: 8, suit: 'H' },
+    { point: 9, suit: 'H' },
+    { point: 10, suit: 'H' },
+    { point: "J", suit: 'H' },
+    { point: "Q", suit: 'H' },
+    { point: "K", suit: 'H' },
+    { point: "A", suit: 'D' },
+    { point: 2, suit: 'D' },
+    { point: 3, suit: 'D' },
+    { point: 4, suit: 'D' },
+    { point: 5, suit: 'D' },
+    { point: 6, suit: 'D' },
+    { point: 7, suit: 'D' },
+    { point: 8, suit: 'D' },
+    { point: 9, suit: 'D' },
+    { point: 10, suit: 'D' },
+    { point: "J", suit: 'D' },
+    { point: "Q", suit: 'D' },
+    { point: "K", suit: 'D' },
+    { point: "A", suit: 'C' },
+    { point: 2, suit: 'C' },
+    { point: 3, suit: 'C' },
+    { point: 4, suit: 'C' },
+    { point: 5, suit: 'C' },
+    { point: 6, suit: 'C' },
+    { point: 7, suit: 'C' },
+    { point: 8, suit: 'C' },
+    { point: 9, suit: 'C' },
+    { point: 10, suit: 'C' },
+    { point: "J", suit: 'C' },
+    { point: "Q", suit: 'C' },
+    { point: "K", suit: 'C' },
+    { point: "A", suit: 'S' },
+    { point: 2, suit: 'S' },
+    { point: 3, suit: 'S' },
+    { point: 4, suit: 'S' },
+    { point: 5, suit: 'S' },
+    { point: 6, suit: 'S' },
+    { point: 7, suit: 'S' },
+    { point: 8, suit: 'S' },
+    { point: 9, suit: 'S' },
+    { point: 10, suit: 'S' },
+    { point: "J", suit: 'S' },
+    { point: "Q", suit: 'S' },
+    { point: "K", suit: 'S' },
 ];
 
-img1.src = "cards/AS.jpg"
-img2.src = "cards/AC.jpg"
-img3.src = "cards/AH.jpg"
-img4.src = "cards/AD.jpg"
-img5.src = "cards/4D.jpg"
+var playerHand = [];
+var dealerHand = [];
+
+
+var cardRand = function() {
+    
+    var rand = Math.floor(Math.random() * 52);
+    card = deck[rand]
+    var img = document.createElement('img');
+    return "Cards/"+card.point+card.suit+ ".jpg";
+    
+    
+}
+
 
 deal.addEventListener('click', function(e){
-    pHand.appendChild(img1);
-    pHand.appendChild(img2);
-    dHand.appendChild(img3);
-    dHand.appendChild(img4);
-    
+    var img = document.createElement('img');
+    img.src = cardRand();
+    pHand.appendChild(img);
+    var img = document.createElement('img');
+    img.src = cardRand();
+    pHand.appendChild(img);
+    var img = document.createElement('img');
+    img.src = cardRand();
+    dHand.appendChild(img);
+    var img = document.createElement('img');
+    img.src = cardRand();
+    dHand.appendChild(img);
+
 });
 
 hit.addEventListener('click', function(e) {
-    pHand.appendChild(img5);
+    var img = document.createElement('img');
+    img.src = cardRand();
+    pHand.appendChild(img);
 })
