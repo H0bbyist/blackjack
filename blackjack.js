@@ -76,20 +76,27 @@ var cardRand = function() {
     return "Cards/"+card.case+card.suit+ ".jpg";   
 }
 
-// function pwin() {
-//     pBoard.textContent = "Player:" + pScore + "Player Win!";
-// }
-// function plose() {
-//     pBoard.textContent = "Player:" + pScore + "Player Busted. Dealer Wins!";
-// }
-// function dwin() {
-//     dBoard.textContent = "Dealer:" + dScore + "Dealer Wins!";
-// }
-// function dlose() {
-//     dBoard.textContent = "Dealer:" + dScore + "Dealer Busted. Player Wins";
-// }
+function pwin() {
+    pBoard.textContent = "Player:" + pScore + "Player Wins";
+}
+function plose() {
+    pBoard.textContent = "Player:" + pScore + "Player Busts";
+}
+function dwin() {
+    dBoard.textContent = "Dealer:" + dScore + "Dealer Wins";
+}
+function dlose() {
+    dBoard.textContent = "Dealer:" + dScore + "Dealer Busts";
+
+}
+
+hit.disabled = true;
+stand.disabled = true;
 
 deal.addEventListener('click', function(e){
+    hit.disabled = false;
+    stand.disabled = false;
+
     var img = document.createElement('img');
     img.src = cardRand();
     pHand.appendChild(img);
@@ -113,16 +120,16 @@ deal.addEventListener('click', function(e){
     pBoard.textContent = "Player:" + pScore;
     dBoard.textContent = "Dealer:" + dScore;
 
-    // if (pScore == 21) {
-    //     pwin();
-    // } else if (pScore > 21) {
-    //     plose();
-    // }
-    // if (dScore == 21) {
-    //     dwin();
-    // } else if (dScore > 21) {
-    //     dlose();
-    // }
+    if (pScore > 21) {
+        plose();
+        hit.disabled = true;
+    }
+    if (pScore == 21) {
+        pwin();
+        hit.disabled = true;
+    }
+
+    deal.disabled = true;
 
 });
 
@@ -133,4 +140,15 @@ hit.addEventListener('click', function(e) {
     pScore += points;
 
     pBoard.textContent = "Player:" + pScore;
+    
+    if (pScore > 21) {
+        plose();
+        hit.disabled = true;
+    }
+    if (pScore == 21) {
+        pwin();
+        hit.disabled = true;
+    }
+    
 })
+

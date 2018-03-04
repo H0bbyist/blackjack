@@ -30,7 +30,8 @@ body {
 }
 
 label {
-    margin-left: -650px;
+    padding-bottom: 5px;
+    
 }
 
 button {
