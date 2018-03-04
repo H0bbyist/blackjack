@@ -3,14 +3,16 @@ console.log("Sup");
 var deal =document.getElementById("deal-button")
 var hit = document.getElementById("hit-button")
 var stand = document.getElementById("stand-button")
+var again = document.getElementById("again-button")
 var pHand = document.getElementById("player-hand")
 var dHand = document.getElementById("dealer-hand")
 var pBoard = document.getElementById("playerScore")
 var dBoard = document.getElementById("dealerScore")
+var images = document.getElementsByTagName('img')
 var pScore = 0;
 var dScore = 0;
 var points = 0;
-
+var usedCards = [];
 
 var deck = [
     { case: "A", suit: 'H', point: 11 },
@@ -68,32 +70,67 @@ var deck = [
 ];
 
 var cardRand = function() {
-    
     var rand = Math.floor(Math.random() * deck.length);
     card = deck[rand]
+    usedCards.push(card);
     points = card.point;
     var mod = deck.splice(rand, 1);
-    return "Cards/"+card.case+card.suit+ ".jpg";   
+    return "Cards/"+card.case+card.suit+".jpg";   
+}
+var draw = function() {
+    pBoard.textContent = "Player:" + pScore + "Draw";
+    hit.disabled = true;
+    stand.disabled = true;
+}
+var pwin = function() {
+    pBoard.textContent = "Player:" + pScore + "Player Wins";
+    hit.disabled = true;
+    stand.disabled = true;
+}
+var plose =function() {
+    pBoard.textContent = "Player -" + pScore + "Player Busts";
+    hit.disabled = true;
+    stand.disabled = true;
+}
+var dwin = function() {
+    dBoard.textContent = "Dealer -" + dScore + "Dealer Wins";
+    hit.disabled = true;
+    stand.disabled = true;
+}
+var dlose = function() {
+    dBoard.textContent = "Dealer -" + dScore + "Dealer Busts";
+    hit.disabled = true;
+    stand.disabled = true;
 }
 
-function pwin() {
-    pBoard.textContent = "Player:" + pScore + "Player Wins";
-}
-function plose() {
-    pBoard.textContent = "Player:" + pScore + "Player Busts";
-}
-function dwin() {
-    dBoard.textContent = "Dealer:" + dScore + "Dealer Wins";
-}
-function dlose() {
-    dBoard.textContent = "Dealer:" + dScore + "Dealer Busts";
+var reset = function() {
+    usedCards.map(function(e) {
+        var x = usedCards.splice(e, usedCards.length);
+        for (i = 0; i < x.length; i++) {
+            deck.push(x[i]);
+        }
+    })
+    
+
+
+    while (pHand.firstChild) {
+        pHand.removeChild(pHand.firstChild);
+    }
+    while (dHand.firstChild) {
+        dHand.removeChild(dHand.firstChild);
+    }
+    
+    pScore = 0;
+    dScore = 0; 
+    pBoard.textContent = "Player -";
+    dBoard.textContent = "Dealer -";
 
 }
 
 hit.disabled = true;
 stand.disabled = true;
 
-deal.addEventListener('click', function(e){
+deal.addEventListener('click', function(){          // Deal Button
     hit.disabled = false;
     stand.disabled = false;
 
@@ -117,8 +154,8 @@ deal.addEventListener('click', function(e){
     dHand.appendChild(img);
     dScore += points;
 
-    pBoard.textContent = "Player:" + pScore;
-    dBoard.textContent = "Dealer:" + dScore;
+    pBoard.textContent = "Player -" + pScore;
+    dBoard.textContent = "Dealer -" + dScore;
 
     if (pScore > 21) {
         plose();
@@ -133,13 +170,13 @@ deal.addEventListener('click', function(e){
 
 });
 
-hit.addEventListener('click', function(e) {
+hit.addEventListener('click', function() {          //Hit Button
     var img = document.createElement('img');
     img.src = cardRand();
     pHand.appendChild(img);
     pScore += points;
 
-    pBoard.textContent = "Player:" + pScore;
+    pBoard.textContent = "Player -" + pScore;
     
     if (pScore > 21) {
         plose();
@@ -152,3 +189,41 @@ hit.addEventListener('click', function(e) {
     
 })
 
+stand.addEventListener('click', function() {        // Stand Button
+    hit.disabled = true;
+    
+    while (dScore < 17) {
+        var img = document.createElement('img');
+        img.src = cardRand();
+        dHand.appendChild(img);
+        dScore += points;
+
+
+    }
+    dBoard.textContent = "Dealer:" + dScore;
+
+    if (dScore > 21) {
+        dlose();
+        stand.disabled = true;
+    }
+    if (dScore == 21) {
+        dwin();
+        stand.disabled = true;
+    }
+    if (dScore == pScore) {
+
+    }
+     else if (dScore > pScore && dScore < 21) {
+        dwin();
+    }
+     else if (dScore < pScore && dScore < 21) {
+        pwin();
+    }
+})
+
+again.addEventListener('click', function() {            //Again Button
+    reset();
+    deal.disabled = false;
+    hit.disabled = true;
+    stand.disabled = true;  
+})
