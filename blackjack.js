@@ -78,27 +78,28 @@ var cardRand = function() {
     return "Cards/"+card.case+card.suit+".jpg";   
 }
 var draw = function() {
-    pBoard.textContent = "Player:" + pScore + "Draw";
+    pBoard.textContent = "Player:" + " " + pScore + " " + "Draw";
+    dBoard.textContent = "Dealer:" + " " + dScore + " " + "Draw";
     hit.disabled = true;
     stand.disabled = true;
 }
 var pwin = function() {
-    pBoard.textContent = "Player:" + pScore + "Player Wins";
+    pBoard.textContent = "Player:" + " " + pScore + " " + "Player Wins";
     hit.disabled = true;
     stand.disabled = true;
 }
 var plose =function() {
-    pBoard.textContent = "Player -" + pScore + "Player Busts";
+    pBoard.textContent = "Player -" + " " + pScore + " " + "Player Busts";
     hit.disabled = true;
     stand.disabled = true;
 }
 var dwin = function() {
-    dBoard.textContent = "Dealer -" + dScore + "Dealer Wins";
+    dBoard.textContent = "Dealer -" + " " + dScore + " " + "Dealer Wins";
     hit.disabled = true;
     stand.disabled = true;
 }
 var dlose = function() {
-    dBoard.textContent = "Dealer -" + dScore + "Dealer Busts";
+    dBoard.textContent = "Dealer -" + " " + dScore + " " + "Dealer Busts";
     hit.disabled = true;
     stand.disabled = true;
 }
@@ -154,8 +155,8 @@ deal.addEventListener('click', function(){          // Deal Button
     dHand.appendChild(img);
     dScore += points;
 
-    pBoard.textContent = "Player -" + pScore;
-    dBoard.textContent = "Dealer -" + dScore;
+    pBoard.textContent = "Player -" + " " + pScore;
+    dBoard.textContent = "Dealer -" + " " + dScore;
 
     if (pScore > 21) {
         plose();
@@ -170,13 +171,13 @@ deal.addEventListener('click', function(){          // Deal Button
 
 });
 
-hit.addEventListener('click', function() {          //Hit Button
+hit.addEventListener('click', function() {          // Hit Button
     var img = document.createElement('img');
     img.src = cardRand();
     pHand.appendChild(img);
     pScore += points;
 
-    pBoard.textContent = "Player -" + pScore;
+    pBoard.textContent = "Player -" + " " + pScore;
     
     if (pScore > 21) {
         plose();
@@ -200,7 +201,7 @@ stand.addEventListener('click', function() {        // Stand Button
 
 
     }
-    dBoard.textContent = "Dealer:" + dScore;
+    dBoard.textContent = "Dealer:" + " " + dScore;
 
     if (dScore > 21) {
         dlose();
@@ -211,7 +212,7 @@ stand.addEventListener('click', function() {        // Stand Button
         stand.disabled = true;
     }
     if (dScore == pScore) {
-
+        draw();
     }
      else if (dScore > pScore && dScore < 21) {
         dwin();
@@ -221,7 +222,7 @@ stand.addEventListener('click', function() {        // Stand Button
     }
 })
 
-again.addEventListener('click', function() {            //Again Button
+again.addEventListener('click', function() {        // Again Button
     reset();
     deal.disabled = false;
     hit.disabled = true;
