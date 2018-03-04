@@ -103,7 +103,6 @@ var dlose = function() {
     hit.disabled = true;
     stand.disabled = true;
 }
-
 var reset = function() {
     usedCards.map(function(e) {
         var x = usedCards.splice(e, usedCards.length);

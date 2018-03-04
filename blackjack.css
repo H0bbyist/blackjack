@@ -50,3 +50,7 @@ img {
     margin-left: 15px;
     border-radius: 7px;
 }
+
+.score {
+    font-family: 'Abril Fatface', cursive;
+}
