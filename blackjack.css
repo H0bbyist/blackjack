@@ -1,14 +1,14 @@
 body {
     background-color: #5B2014;
     background-image: url("cards/beverlyhills.jpg");
-    
 }
 
 #title {
     color:white;
     text-align: center;
     font-size: 4em;
-    font-family: 'Satisfy', cursive;}
+    font-family: 'Satisfy', cursive;
+}
 
 #table {
     height: 450px;
@@ -43,6 +43,6 @@ button {
 
 img {
     height: 100%;
-    margin-left: 10px;
+    margin-left: 15px;
     border-radius: 7px;
 }
