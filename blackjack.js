@@ -76,6 +76,18 @@ var cardRand = function() {
     return "Cards/"+card.case+card.suit+ ".jpg";   
 }
 
+// function pwin() {
+//     pBoard.textContent = "Player:" + pScore + "Player Win!";
+// }
+// function plose() {
+//     pBoard.textContent = "Player:" + pScore + "Player Busted. Dealer Wins!";
+// }
+// function dwin() {
+//     dBoard.textContent = "Dealer:" + dScore + "Dealer Wins!";
+// }
+// function dlose() {
+//     dBoard.textContent = "Dealer:" + dScore + "Dealer Busted. Player Wins";
+// }
 
 deal.addEventListener('click', function(e){
     var img = document.createElement('img');
@@ -101,16 +113,16 @@ deal.addEventListener('click', function(e){
     pBoard.textContent = "Player:" + pScore;
     dBoard.textContent = "Dealer:" + dScore;
 
-    if (pScore == 21) {
-        pwin();
-    } else if (pScore > 21) {
-        dwin();
-    }
-    if (dScore == 21) {
-        dwin();
-    } else if (dScore > 21) {
-        pwin();
-    }
+    // if (pScore == 21) {
+    //     pwin();
+    // } else if (pScore > 21) {
+    //     plose();
+    // }
+    // if (dScore == 21) {
+    //     dwin();
+    // } else if (dScore > 21) {
+    //     dlose();
+    // }
 
 });
 
@@ -119,4 +131,6 @@ hit.addEventListener('click', function(e) {
     img.src = cardRand();
     pHand.appendChild(img);
     pScore += points;
+
+    pBoard.textContent = "Player:" + pScore;
 })
