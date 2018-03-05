@@ -181,7 +181,7 @@ var cardRand = function () {
     var mod = deck.splice(rand, 1);
     return "Cards/" + card.case + card.suit + ".jpg";
 }
-var draw = function () {
+var tie = function () {
     pBoard.textContent = "Player:" + " " + pScore + " " + "Draw";
     dBoard.textContent = "Dealer:" + " " + dScore + " " + "Draw";
     hit.disabled = true;
@@ -234,7 +234,7 @@ var reset = function () {
 hit.disabled = true;
 stand.disabled = true;
 
-deal.addEventListener('click', function () {          // Deal Button
+deal.addEventListener('click', function () {         // Deal Button
     hit.disabled = false;
     stand.disabled = false;
 
@@ -291,7 +291,7 @@ hit.addEventListener('click', function () {          // Hit Button
         hit.disabled = true;
     }
 
-})
+});
 
 stand.addEventListener('click', function () {        // Stand Button
     hit.disabled = true;
@@ -315,19 +315,19 @@ stand.addEventListener('click', function () {        // Stand Button
         stand.disabled = true;
     }
     if (dScore == pScore) {
-        draw();
+        tie();
     }
     else if (dScore > pScore && dScore < 21) {
-        dwin();
+        tie();
     }
     else if (dScore < pScore && dScore < 21) {
-        pwin();
+        tie();
     }
-})
+});
 
 again.addEventListener('click', function () {        // Again Button
     reset();
     deal.disabled = false;
     hit.disabled = true;
     stand.disabled = true;
-})
+});
