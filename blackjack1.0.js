@@ -1,4 +1,4 @@
-console.log("Sup");
+console.log("*** Original Version Javascript ***");
 
 var deal = document.getElementById("deal-button")
 var hit = document.getElementById("hit-button")
