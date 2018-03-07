@@ -230,9 +230,19 @@ var reset = function () {
     dBoard.textContent = "Dealer -";
 
 }
+var reveal = function () {
+    blank = document.getElementById("blankCard");
+    blank.remove()
+    hide = document.getElementById("hiddenCard");
+    hide.hidden = false;
+    dScore += hiddenPoint;
+    hiddenPoint = 0;
+
+}
 
 hit.disabled = true;
 stand.disabled = true;
+var hiddenPoint = 0;
 
 deal.addEventListener('click', function () {         // Deal Button
     hit.disabled = false;
@@ -253,12 +263,12 @@ deal.addEventListener('click', function () {         // Deal Button
     img.id = "hiddenCard";
     img.hidden = true;
     dHand.appendChild(img);
+    hiddenPoint += points;
 
     var img = document.createElement('img');
     img.src = "Cards/purple_back.jpg";
     img.id = "blankCard";
     dHand.appendChild(img);
-    
     
     var img = document.createElement('img');
     img.src = cardRand();
@@ -272,10 +282,12 @@ deal.addEventListener('click', function () {         // Deal Button
     if (pScore > 21) {
         plose();
         hit.disabled = true;
+        reveal();
     }
     if (pScore == 21) {
         pwin();
         hit.disabled = true;
+        reveal();
     }
 
     deal.disabled = true;
@@ -293,20 +305,20 @@ hit.addEventListener('click', function () {          // Hit Button
     if (pScore > 21) {
         plose();
         hit.disabled = true;
+        reveal();
     }
     if (pScore == 21) {
         pwin();
         hit.disabled = true;
+        reveal();
+        
     }
 
 });
 
 stand.addEventListener('click', function () {        // Stand Button
     hit.disabled = true;
-    blank = document.getElementById("blankCard");
-    blank.remove()
-    hide = document.getElementById("hiddenCard");
-    hide.hidden = false;
+    reveal();
     
     
 
