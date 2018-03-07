@@ -318,10 +318,10 @@ stand.addEventListener('click', function () {        // Stand Button
         tie();
     }
     else if (dScore > pScore && dScore < 21) {
-        tie();
+        dwin();
     }
     else if (dScore < pScore && dScore < 21) {
-        tie();
+        pwin();
     }
 });
 
