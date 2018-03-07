@@ -250,11 +250,19 @@ deal.addEventListener('click', function () {         // Deal Button
 
     var img = document.createElement('img');
     img.src = cardRand();
+    img.id = "hiddenCard";
+    img.hidden = true;
     dHand.appendChild(img);
-    dScore += points;
 
     var img = document.createElement('img');
+    img.src = "Cards/purple_back.jpg";
+    img.id = "blankCard";
+    dHand.appendChild(img);
+    
+    
+    var img = document.createElement('img');
     img.src = cardRand();
+    img.id = "firstDCard"
     dHand.appendChild(img);
     dScore += points;
 
@@ -295,6 +303,12 @@ hit.addEventListener('click', function () {          // Hit Button
 
 stand.addEventListener('click', function () {        // Stand Button
     hit.disabled = true;
+    blank = document.getElementById("blankCard");
+    blank.remove()
+    hide = document.getElementById("hiddenCard");
+    hide.hidden = false;
+    
+    
 
     while (dScore < 17) {
         var img = document.createElement('img');

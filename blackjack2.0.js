@@ -19,15 +19,16 @@ class Card {
         this.num = num;
         this.suit = suit;
         this.point = point;
+        this.url = ""
     }
 }
 
 Card.prototype.getImageUrl = function() {
-    return "Cards/"+this.num+this.suit+".png";
+    this.url = "Cards/"+this.num+this.suit+".png";
 }
 
 
-var newCard = new Card();
+
 
 class Deck {
     constructor() {
@@ -88,11 +89,9 @@ class Deck {
         ];
     }
 }
-var newDeck = new Deck()
 
 Deck.prototype.draw = function () {
-    this.cards[]
-    this.cards.pop();
+    newCard = this.cards.pop()
 }
 Deck.prototype.numCardsLeft = function () {
     return this.cards.length
@@ -108,6 +107,28 @@ Deck.prototype.shuffle = function () {
         return array;
     
 }
+
+class Hand {
+    constructor() {
+        this.cards = [];
+        this.points = 0;
+    }
+}
+
+
+
+Hand.prototype.addCard = function(e) {
+    this.cards.push(e);
+    this.points += e.point;
+}
+Hand.prototype.getPoints = function() {
+    return this.points;
+}
+
+var newDeck = new Deck()
+var pHandClass = new Hand();
+var newCard = new Card();
+
 
 
 var cardRand = function () {
@@ -180,7 +201,7 @@ deal.addEventListener('click', function () {         // Deal Button
     var img = document.createElement('img');
     img.src = newCard.getImageUrl();
     pHand.appendChild(img);
-    pScore += newCard.point;
+    pScore += newCard.points;
 
 
     pBoard.textContent = "Player -" + " " + pScore;

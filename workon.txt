@@ -1,0 +1,8 @@
+Working on refactoring blackjack javascript v2 (blackjack2.0.js)
+
+Deck class is working.
+
+Deck shuffle (newDeck.shuffle()) is working.
+
+trying to get Deck.draw() working.
+    card pops off but doesnt append to the used cards list
