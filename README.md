@@ -1,9 +1,9 @@
 Beverly Hills Blackjack Game
 ============================
 
-A game of blackjack to test:
+A game of blackjack created to test:
 - dom traversal and manipulation
-- javascript implementation
+- javascript object creation and implementation
 - your luck
 
 <img src="Screenshot1.png">
