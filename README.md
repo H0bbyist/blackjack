@@ -19,14 +19,29 @@ Are you feeling lucky?
 * HTML
 * Cascading Style Sheets
 * Javascript
+* Lots of Coffee
+
+## Versions
+
+there are two versions of the javascript file
+- javascript1.0.js
+- javascript2.0.js
+
+1.0 is standard javascript dom manipulation
+2.0 is javascript implemented with objects
+
+They have essentially the same functionality with different motors under the hood.
+
+## Future Features
+
+- Betting system
+- Card flip animations
+- jQuery implementation
+
 
 ## Contributing
 
 Feel free to fork the game and make some contributions
-
-## Versions
-
-there are two versions of the javascript available:
 
 ## Authors
 
