@@ -23,7 +23,7 @@ Are you feeling lucky?
 
 ## Versions
 
-there are two versions of the javascript file
+There are two versions of the javascript file
 - javascript1.0.js
 - javascript2.0.js
 
