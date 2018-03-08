@@ -6,6 +6,8 @@ A game of blackjack to test:
 - javascript implementation
 - your luck
 
+<img src="Screenshot1.png">
+
 ## Getting Started
 
 This is a web browser game. Go ahead and open it up in your browser to see it in action!
