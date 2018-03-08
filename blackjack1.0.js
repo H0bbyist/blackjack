@@ -320,8 +320,6 @@ stand.addEventListener('click', function () {        // Stand Button
     hit.disabled = true;
     reveal();
     
-    
-
     while (dScore < 17) {
         var img = document.createElement('img');
         img.src = cardRand();
