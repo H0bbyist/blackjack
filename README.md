@@ -25,7 +25,6 @@ Feel free to fork the game and make some contributions
 ## Versions
 
 there are two versions of the javascript available:
-- javascript1.0.js
 
 ## Authors
 
@@ -33,4 +32,4 @@ there are two versions of the javascript available:
 
 ## Acknowledgments
 
-* Shout out to all the great instructors
+* Big thanks to all the great instructors at Digital Crafts!
