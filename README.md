@@ -25,7 +25,7 @@ Are you feeling lucky?
 
 There are two versions of the javascript file
 - javascript1.0.js
-- javascript2.0.js
+- javascript2.0.js **under construction**
 
 1.0 is standard javascript dom manipulation
 2.0 is javascript implemented with objects
